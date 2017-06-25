@@ -1,3 +1,4 @@
+import { routing } from './routing-config';
 import { ProductsService } from './products.service';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,7 +16,8 @@ import { QueryComponent } from './query/query.component';
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]
