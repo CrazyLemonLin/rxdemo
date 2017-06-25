@@ -8,9 +8,19 @@ export class ProductsService {
 
   constructor(private httpService: Http) { }
 
-  getProducts(keyword?: string): Observable<any> {
-
-    return this.httpService.get("./assets/api/products.json")
+  getProducts(): Observable<any[]> {
+    const source = this.httpService.get("./assets/api/products.json")
       .map(res => res.json());
+      return source;
+  }
+
+  filterProducts(keyword?: string) {
+    return this.getProducts()
+    .flatMap(s => s)
+    .filter(p => {
+      if (!keyword) return true;
+      return p['name'].includes(keyword);
+    })
+    .toArray();
   }
 }
