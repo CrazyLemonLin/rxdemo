@@ -1,3 +1,4 @@
+import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./query.component.css']
 })
 export class QueryComponent implements OnInit {
+  products: any;
 
-  constructor() { }
+  constructor(private http: Http) {
 
-  ngOnInit() {
+  }
+
+  ngOnInit(): void {
+    this.http.get("./assets/api/products.json")
+      .map(res => res.json())
+      .subscribe(products => this.products = products);
   }
 
 }
