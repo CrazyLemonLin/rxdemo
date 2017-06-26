@@ -7,12 +7,14 @@ import { FormsModule } from "@angular/forms";
 import { AppComponent } from './app.component';
 import { FilterComponent } from './filter/filter.component';
 import { QueryComponent } from './query/query.component';
+import { ForkjoinComponent } from './forkjoin/forkjoin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilterComponent,
-    QueryComponent
+    QueryComponent,
+    ForkjoinComponent
   ],
   imports: [
     BrowserModule,
