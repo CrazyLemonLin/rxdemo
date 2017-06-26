@@ -3,11 +3,12 @@ import { ProductsService } from './products.service';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FilterComponent } from './filter/filter.component';
 import { QueryComponent } from './query/query.component';
 import { ForkjoinComponent } from './forkjoin/forkjoin.component';
+import { CustomerService } from './customer.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { ForkjoinComponent } from './forkjoin/forkjoin.component';
     routing,
     FormsModule
   ],
-  providers: [ProductsService],
+  providers: [ProductsService, CustomerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
