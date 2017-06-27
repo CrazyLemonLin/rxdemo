@@ -5,22 +5,28 @@ import { Observable, Subject } from "rxjs";
 
 @Injectable()
 export class ProductsService {
-
+  apiUrl = './assets/api/products.json';
   constructor(private httpService: Http) { }
 
   getProducts(): Observable<any[]> {
-    const source = this.httpService.get("./assets/api/products.json")
+    const source = this.httpService.get(this.apiUrl)
       .map(res => res.json());
-      return source;
+    return source;
   }
 
   filterProducts(keyword?: string) {
     return this.getProducts()
-    .flatMap(s => s)
-    .filter(p => {
-      if (!keyword) return true;
-      return p['name'].includes(keyword);
-    })
-    .toArray();
+      .flatMap(s => s)
+      .filter(p => {
+        if (!keyword) return true;
+        return p['name'].includes(keyword);
+      })
+      .toArray();
+  }
+
+  getOneProduct(): Observable<any> {
+    return this.getProducts()
+      .switchMap(s => s)
+      .first();
   }
 }
