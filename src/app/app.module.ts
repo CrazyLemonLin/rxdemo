@@ -9,13 +9,15 @@ import { FilterComponent } from './filter/filter.component';
 import { QueryComponent } from './query/query.component';
 import { ForkjoinComponent } from './forkjoin/forkjoin.component';
 import { CustomerService } from './customer.service';
+import { SeqRequestComponent } from './seq-request/seq-request.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilterComponent,
     QueryComponent,
-    ForkjoinComponent
+    ForkjoinComponent,
+    SeqRequestComponent
   ],
   imports: [
     BrowserModule,
