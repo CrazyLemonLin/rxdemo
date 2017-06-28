@@ -18,11 +18,14 @@ export class FilterComponent implements OnInit {
 
   ngOnInit() {
     this.products$ =
-       this.filterStream
-      .startWith('')
-      .flatMap(keyword => {
-        return this._productService.filterProducts(keyword);
-      });
+      this.filterStream
+        .debounceTime(700)
+        .filter(keyword => keyword.length >= 2 || keyword.length === 0)
+        .distinctUntilChanged()
+        .startWith('')
+        .flatMap(keyword => {
+          return this._productService.filterProducts(keyword);
+        });
   }
 
   onKeywordChange(keyword: string) {
