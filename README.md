@@ -1,5 +1,16 @@
 # RxDemo
+## 多個請求的並行應用
+https://github.com/CrazyLemonLin/rxdemo/blob/master/src/app/forkjoin/forkjoin.component.ts
 
+## 順序性的請求應用
+https://github.com/CrazyLemonLin/rxdemo/blob/master/src/app/seq-request/seq-request.component.ts
+
+## 資料過濾的應用
+https://github.com/CrazyLemonLin/rxdemo/blob/master/src/app/filter/filter.component.ts
+
+## ---------------
+
+## Run this application
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.3.
 
 ## Development server
