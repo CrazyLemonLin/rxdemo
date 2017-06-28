@@ -9,9 +9,12 @@ export class ProductsService {
   constructor(private httpService: Http) { }
 
   getProducts(): Observable<any[]> {
+    const subject = new Subject();
     const source = this.httpService.get(this.apiUrl)
       .map(res => res.json());
-    return source;
+
+    source.subscribe(subject);
+    return subject;
   }
 
   filterProducts(keyword?: string) {

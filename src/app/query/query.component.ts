@@ -1,5 +1,6 @@
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'cyl-query',
@@ -9,14 +10,12 @@ import { Component, OnInit } from '@angular/core';
 export class QueryComponent implements OnInit {
   products: any;
 
-  constructor(private http: Http) {
+  constructor(private _productService:ProductsService) {
 
   }
 
   ngOnInit(): void {
-    this.http.get("./assets/api/products.json")
-      .map(res => res.json())
-      .subscribe(products => this.products = products);
+    this.products = this._productService.getProducts();
   }
 
 }

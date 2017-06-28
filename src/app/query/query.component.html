@@ -4,9 +4,14 @@
     <th>No</th>
     <th>Name</th>
   </tr>
-  <tr *ngFor="let p of products">
+  <tr *ngFor="let p of products | async">
     <td>{{p.id}}</td>
     <td>{{p.no}}</td>
     <td>{{p.name}}</td>
+  </tr>
+  <tr>
+    <td colspan="3">
+      {{(products | async)?.length}}
+    </td>
   </tr>
 </table>
